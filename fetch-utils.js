@@ -20,6 +20,14 @@ export async function signInUser(email, password) {}
 
 export async function checkAuth() {}
 
-export async function redirectIfLoggedIn() {}
+export async function redirectIfLoggedIn() {
+    if (getUser()) {
+        location.replace('./other-page');
+    }
+}
 
-export async function logout() {}
+export async function logout() {
+    await client.auth.signOut();
+
+    return (window.location.href = '/');
+}

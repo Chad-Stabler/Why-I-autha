@@ -1,4 +1,4 @@
-import { redirectIfLoggedIn, signupUser } from './fetch-utils.js';
+import { redirectIfLoggedIn, signInUser, signupUser } from './fetch-utils.js';
 
 const signInForm = document.getElementById('sign-in');
 const signInEmail = document.getElementById('sign-in-email');
@@ -21,6 +21,8 @@ signUpForm.addEventListener('submit', async (e) => {
         location.replace('./other-page');
     }
 });
+
+
 // Wire up sign in and sign up forms to supabase
 // Redirect to /other-page on successful auth
 // Redirect to /other-page when page loads if user is authenticated
