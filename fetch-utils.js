@@ -4,6 +4,9 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+let signInError = document.getElementById('sign-in-error');
+let signUpError = document.getElementById('sign-up-error');
+
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }
@@ -13,7 +16,7 @@ export async function signupUser(email, password) {
 
     if (response.user) {
         return response.user;   
-    } else console.error(response.error);
+    } else signUpError.textContent = response.error;
 }
 
 export async function signInUser(email, password) {
@@ -21,7 +24,7 @@ export async function signInUser(email, password) {
 
     if (response.user) {
         return response.user;   
-    } else console.error(response.error);
+    } else signInError.textContent = response.error;
 }
 
 export async function checkAuth() {
