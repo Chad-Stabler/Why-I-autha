@@ -17,7 +17,7 @@ export async function signupUser(email, password) {
     if (response.user) {
         signUpError.textContent = '';
         return response.user;   
-    } else signUpError.textContent = String(response.error);
+    } else signUpError.textContent = response.error.message;
 }
 
 export async function signInUser(email, password) {
@@ -26,7 +26,7 @@ export async function signInUser(email, password) {
     if (response.user) {
         signInError.textContent = '';
         return response.user;   
-    } else signInError.textContent = String(response.error);
+    } else signInError.textContent = response.error.message;
 }
 
 export async function checkAuth() {
