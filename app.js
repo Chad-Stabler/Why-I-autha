@@ -15,7 +15,7 @@ signUpForm.addEventListener('submit', async (e) => {
     if (user) {
         location.replace('./other-page');
     }
-    signUpForm.clear();
+    signUpForm.reset();
 });
 
 signInForm.addEventListener('submit', async (e) => {
@@ -28,7 +28,7 @@ signInForm.addEventListener('submit', async (e) => {
     if (user) {
         location.replace('./other-page');
     }
-    signInForm.clear();
+    signInForm.reset();
 });
 // Wire up sign in and sign up forms to supabase
 // Redirect to /other-page on successful auth
